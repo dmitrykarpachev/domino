@@ -1,1 +1,2 @@
-print(f'{input()} (dir. {input()}) came out in {input()}')
+In = input()
+print(f'{In} has {len(In)} letters')
