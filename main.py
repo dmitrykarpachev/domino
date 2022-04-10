@@ -1,1 +1,1 @@
-print(round(float(input()), int(input())))
+print(f'{input()} (dir. {input()}) came out in {input()}')
