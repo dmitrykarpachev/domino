@@ -1,1 +1,1 @@
-print(round(3.141592653589793, 5))
+print(round(float(input()), int(input())))
