@@ -1,3 +1,2 @@
-w, t, T = tuple(map(int, input().split(' ')))
+print(round(int(input()) / 2))
 
-print((T // t + 1) * w)
