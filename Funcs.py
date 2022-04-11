@@ -20,3 +20,14 @@ def two_groups(bricks):
         Const.COMPUTER_GROUP, Const.PLAYER_GROUP = group1, group2
         del bricks[:14]
         Const.STOCK = bricks
+
+
+def find6x6():
+    if (6, 6) in Const.COMPUTER_GROUP:
+        return 'computer'
+    elif (6, 6) in Const.PLAYER_GROUP:
+        return 'player'
+    elif (5, 5) in Const.COMPUTER_GROUP:
+        return 'computer'
+    elif (5, 5) in Const.PLAYER_GROUP:
+        return 'player'
