@@ -1,2 +1,2 @@
-n, k = int(input()), int(input())
-print(n ** 2 - k ** 2)
+n = int(input())
+print(n // 17 + n // 13 - n // 221)
