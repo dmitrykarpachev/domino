@@ -1,3 +1,3 @@
-def find_positive(my_list):
-    return list(filter(lambda e: e > 0, my_list))
-
+names = ['Денис', 'Дима', 'Ваня', 'Дима', 'Дима', 'Лёха', 'Вова', 'Вадим', 'Богдан', 'Юра', 'Антон', 'Артем', 'Костя']
+for i, name in enumerate(names, start=1):
+    print(f'Student{i} >', name)
