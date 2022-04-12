@@ -1,3 +1,3 @@
-names = ['Денис', 'Дима', 'Ваня', 'Дима', 'Дима', 'Лёха', 'Вова', 'Вадим', 'Богдан', 'Юра', 'Антон', 'Артем', 'Костя']
-for i, name in enumerate(names, start=1):
-    print(f'Student{i} >', name)
+string1 = input()
+string2 = input()
+print(''.join([s1 + s2 for s1, s2 in zip(string1, string2)]))
