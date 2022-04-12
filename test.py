@@ -1,3 +1,3 @@
-def my_product(list_1, list_2):
-    return list(map(lambda l1, l2: l1 * l2, list_1, list_2))
+def find_positive(my_list):
+    return list(filter(lambda e: e > 0, my_list))
 
