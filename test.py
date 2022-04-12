@@ -1,8 +1,8 @@
-even = [0, 2, 4, 6, 8]
-dod = [1, 3, 5, 7, 9]
+from random import randint
 
-my_sum = list(map(lambda elem: sum(elem), zip(even, dod)))
-remainders = list(map(lambda a: a % 3, my_sum))
-nonzero_remainders = list(filter(lambda a: a != 0, remainders))
+names = ['Денис', 'Дима', 'Ваня', 'Дима', 'Дима', 'Лёха', 'Вова', 'Вадим', 'Богдан', 'Юра', 'Антон', 'Артем', 'Костя']
+maths = [randint(25, 50) for _ in range(13)]
+physics = [randint(25, 50) for _ in range(13)]
+english = [randint(25, 50) for _ in range(13)]
 
-print(remainders, nonzero_remainders)
+print([name for name, m, p, e in zip(names, maths, physics, english) if m + p + e >= 100])
