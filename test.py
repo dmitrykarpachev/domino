@@ -1,18 +1,19 @@
-from random import randint
-month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov']
-revenues = [randint(1000, 10000) for _ in range(12)]
-costs = [randint(0, v - 500) for v in revenues]
-profits = [r - c for r, c in zip(revenues, costs)]
+from math import sqrt
+from time import perf_counter
 
-for j, (m, p) in enumerate(list(zip(month, profits))[1:]):
-    pers = round((p - profits[j - 1]) / (profits[j - 1] / 100))
-    s = str()
-    if pers >= 50:
-        s = 'great'
-    elif 50 > pers >= 25:
-        s = 'decent'
-    elif 25 > pers >= 0:
-        s = 'need follow up'
-    elif pers < 0:
-        s = 'critical'
-    print(m, p, pers, s)
+
+def divisor_generator(n):
+    ts = perf_counter()
+    large_divisors = []
+    for i in range(1, int(sqrt(n) + 1)):
+        if n % i == 0:
+            yield i
+            if i ** 2 != n:
+                large_divisors.append(int(n / i))
+    for divisor in reversed(large_divisors):
+        yield divisor
+    tf  = perf_counter()
+    print(tf - ts)
+
+
+print(*list(divisor_generator(int(input()))))
