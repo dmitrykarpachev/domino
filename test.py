@@ -1,25 +1,40 @@
-from random import randint
-N = [i for i in range(10)]
-k = randint(1, len(N))
-step = len(N) // k
-ost = len(N) % k
-m_step = step + 1
+from time import perf_counter
 
-last = len(N) - ost * m_step
-lst = list()
-for i in range(len(N) - ost * m_step + m_step, len(N) + 1, m_step):
-    lst.append(N[last:i])
-    last = i
-last = len(N) - ost * m_step
-for i in range(len(N) - ost * m_step - step, -step, -step):
-    lst.insert(0, N[i:last])
-    last = i
-print(lst)
+# def get_primes(n):
+#   primes = [2, 3]
+#   for i in range(5, n + 1):
+#     if i % 6 in (1, 5):
+#       prime = True
+#       for j in range(2, int(i ** 0.5) + 1):
+#         if not i % j:
+#           prime = False
+#           break
+#       if prime:
+#         primes.append(i)
+#   return primes
 
-'''
-2) -> Находим длину меньшего подмассива(целая часть от деления длины исходного массива на k), находим остаток от деления массива на малые подмассивы - это количество больших подмассивов.
-    Отсчитываем от конца массива большие подмассивы.
-    остальную часть массива разбиваем на мылые подмассивы.
-3) -> Малые подассивы - это целая часть от деления длины массива на k, а большие массивы  на 1 больше.
-4) -> Если k больше длины N, то разбить массив на подмассивы невозможно
-'''
+
+# n = 100_000
+# start = perf_counter()
+# primes = get_primes(n)
+# print(perf_counter() - start)
+# print(primes)
+
+
+def get_prime_divs(n):
+  res = []
+  for i in range(2, int(n ** 0.5) + 1):
+    while not n % i:
+      if not i in res:
+        res.append(i)
+      n //= i
+    if n < i:
+      break
+  if n > 1:
+     res.append(n)
+  return res
+
+n = 999_999_999
+start = perf_counter()
+print(get_prime_divs(n))
+print(perf_counter() - start)
