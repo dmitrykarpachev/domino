@@ -1,13 +1,12 @@
-def upper_letters(f):
+def tagged(f):
     def wrapper(*args):
-        f(args[0].upper())
+        print(f'<title>{f(args[0])}</title>')
     return wrapper
 
 
-@upper_letters
+@tagged
 def func(txt):
-    print(txt)
+    return txt.strip()
 
 
-In = input()
-func(In)
+func(input())
