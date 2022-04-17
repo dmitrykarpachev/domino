@@ -1,13 +1,13 @@
-def morning(func):
+def print_info(func):
     def wrapper(*args):
-        func(args[0])
-        print('Good morning,', args[0])
+        print(*args)
+        func(*args)
     return wrapper
 
 
-@morning
-def greetings(name):
-    print('Hello,', name)
+@print_info
+def function(x1, x2):
+    print(x1 + x2)
 
 
-greetings(input())
+function(22, 25)
