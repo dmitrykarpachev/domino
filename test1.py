@@ -1,12 +1,14 @@
-def price_string(func):
+def string(func):
     def wrapper(*args):
-        print('₤' + func(args[0]))
+        t = func(args[0])
+        print(t)
+        print(t)
     return wrapper
 
 
-@price_string
-def function(price):
-    return str(price * 0.9)
+@string
+def function(txt):
+    return txt + '!'
 
 
-function(100)
+function('Hi')
