@@ -1,12 +1,13 @@
-def tagged(f):
+def morning(func):
     def wrapper(*args):
-        print(f'<title>{f(args[0])}</title>')
+        func(args[0])
+        print('Good morning,', args[0])
     return wrapper
 
 
-@tagged
-def func(txt):
-    return txt.strip()
+@morning
+def greetings(name):
+    print('Hello,', name)
 
 
-func(input())
+greetings(input())
