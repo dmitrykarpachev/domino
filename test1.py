@@ -1,13 +1,12 @@
-def print_info(func):
+def price_string(func):
     def wrapper(*args):
-        print(*args)
-        func(*args)
+        print('₤' + func(args[0]))
     return wrapper
 
 
-@print_info
-def function(x1, x2):
-    print(x1 + x2)
+@price_string
+def function(price):
+    return str(price * 0.9)
 
 
-function(22, 25)
+function(100)
