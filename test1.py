@@ -1,8 +1,14 @@
-from random import randint
+from random import choices
 
+population = list()
+weights = list()
+with open('passwords.txt', 'r') as file:
+    data = ''.join(list(map(lambda l: l.rstrip(), file.readlines())))
+    for let in data:
+        if let not in population:
+            population.append(let)
+            weights.append(data.count(let))
+k = max(weights) + 1
+weights = list(map(lambda x: k - x, weights))
 
-while True:
-    a, b = randint(1, 6), randint(1, 6)
-    if a == b and a in (5, 6):
-        print(a, b)
-        break
+print(''.join(choices(population, weights=weights, k=10)))
