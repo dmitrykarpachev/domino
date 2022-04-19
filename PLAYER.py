@@ -1,9 +1,11 @@
 from Exceptions import *
+from functools import reduce
 
 
 class Player:
-    def __init__(self, bricks: list):
+    def __init__(self, bricks: list, level):
         self.bricks = bricks
+        self.intel = level
 
     def get_brick(self, n: int, end: int, rev=False):
         n -= 1
@@ -17,7 +19,7 @@ class Player:
             else:
                 raise ConnectionError(str(self.bricks[n]))
         else:
-            raise InvalidIndex(n)
+            raise InvalidIndex(str(n))
 
     def __str__(self):
         return '\n'.join([f'-> {i}: {val} - {tuple(reversed(val))}' for i, val in enumerate(self.bricks, start=1)])

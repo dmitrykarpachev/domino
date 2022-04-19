@@ -5,11 +5,15 @@ from PLAYER import Player
 from PLANE import Plane
 from Exceptions import *
 
+try:
+    level = int(input('You take the difficulty level(0, 1, 2): '))
+except BaseException:
+    level = 0
 print('=' * 70)
 two_groups(generate_bricks())
 s = find6x6()
-computer = Computer(Const.COMPUTER_GROUP)
-player = Player(Const.PLAYER_GROUP)
+computer = Computer(Const.COMPUTER_GROUP, level)
+player = Player(Const.PLAYER_GROUP, level)
 plane = Plane(player, computer, Const.STOCK, s, Const.START_BRICK)
 
 game = True
@@ -22,7 +26,7 @@ while game:
         break
     print('Stock size:', len(plane))
     print('Computer pieces:', len(computer))
-    print(f'Player pieces: {len(player)}\n', player)
+    print(f'Player pieces: {len(player)}\n' + str(player))
     print('-' * 70)
     print(plane)
     run = True
